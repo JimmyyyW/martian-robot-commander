@@ -1,5 +1,6 @@
 package com.example.martianrobotcommander.command
 
+import com.example.martianrobotcommander.mars.Mars
 import com.example.martianrobotcommander.robot.Location
 import com.example.martianrobotcommander.robot.Orientation
 import org.assertj.core.api.Assertions
@@ -34,6 +35,18 @@ internal class MovementCommandParserTest {
         Assertions.assertThat(commands[0].movementInputs).isEqualTo(command1.movementInputs)
         Assertions.assertThat(commands[1].start).isEqualTo(command2.start)
         Assertions.assertThat(commands[1].movementInputs).isEqualTo(command2.movementInputs)
+    }
+
+    @Test
+    @DisplayName("It creates the mars surface grid")
+    fun itCreates2dMarsArray() {
+        subject.invoke("""53
+            1 1 E 
+            RFRFRFRF
+            """.trimIndent()
+        )
+
+        Assertions.assertThat(Mars.surfaceGrid).isEqualTo(Array(6) { IntArray(4) {it} })
     }
 
     @Test
