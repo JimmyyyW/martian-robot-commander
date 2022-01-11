@@ -1,6 +1,7 @@
 package com.example.martianrobotcommander.command
 
 import com.example.martianrobotcommander.robot.Location
+import com.example.martianrobotcommander.robot.Orientation
 import org.springframework.stereotype.Component
 import kotlin.jvm.Throws
 
@@ -17,8 +18,13 @@ class MovementCommandParser : CommandParser<List<MovementCommand>> {
         val movementCommands = mutableListOf<MovementCommand>()
 
         while (iter.hasNext()) {
-            iter.next()
-            movementCommands.add(MovementCommand(Location(), iter.next()))
+            val locationString = iter.next().replace(" ", "")
+            val location = Location(
+                locationString[0].digitToInt(),
+                locationString[1].digitToInt(),
+                Orientation.valueOf(locationString[2].toString())
+            )
+            movementCommands.add(MovementCommand(location, iter.next().replace(" ", "")))
         }
 
         return movementCommands
