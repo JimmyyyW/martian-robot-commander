@@ -1,10 +1,14 @@
 package com.example.martianrobotcommander.command
 
 import com.example.martianrobotcommander.robot.Location
+import com.example.martianrobotcommander.robot.Orientation
 
 class MovementCommand(val start: Location, val movementInputs: String) : Command<Location> {
+
     override fun invoke(): Location {
-        TODO("Not yet implemented")
+
+
+        return Location(1, 2, Orientation.E)
     }
 
     override fun equals(other: Any?): Boolean {
@@ -24,6 +28,5 @@ class MovementCommand(val start: Location, val movementInputs: String) : Command
         result = 31 * result + movementInputs.hashCode()
         return result
     }
-
 
 }

@@ -1,6 +1,7 @@
 package com.example.martianrobotcommander.controller
 
 import com.example.martianrobotcommander.command.MovementCommandParser
+import com.example.martianrobotcommander.robot.RobotCommandExecutor
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
