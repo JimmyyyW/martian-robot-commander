@@ -1,13 +1,14 @@
-package com.example.martianrobotcommander
+package com.example.martianrobotcommander.smoke
 
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class MartianRobotCommanderApplicationTests {
+class SmokeTest {
 
     @Test
+    @DisplayName("Application launches")
     fun contextLoads() {
     }
-
 }

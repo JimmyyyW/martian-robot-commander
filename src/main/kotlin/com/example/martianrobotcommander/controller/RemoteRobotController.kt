@@ -1,5 +1,6 @@
 package com.example.martianrobotcommander.controller
 
+import com.example.martianrobotcommander.command.MovementCommand
 import com.example.martianrobotcommander.command.MovementCommandParser
 import com.example.martianrobotcommander.robot.RobotCommandExecutor
 import org.springframework.http.MediaType
@@ -20,7 +21,9 @@ class RemoteRobotController(
             var executionResponse = ""
             commands.stream()
                 .map { commandExecutor.execute(it) }
-                .forEach { executionResponse += it.toString() }
+                .forEach { executionResponse += "$it\n" }
+            //To reset scent feature on each request
+            MovementCommand.scents = mutableListOf()
             return executionResponse
         } catch (e: Exception) {
             "Error Parsing Movement commands"

@@ -4,8 +4,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class MartianRobotCommanderApplication
+class MartianRobotCommanderApplication {
+    companion object {
+        @JvmStatic
+        fun main(args: Array<String>) {
+            runApplication<MartianRobotCommanderApplication>(*args)
+        }
 
-fun main(args: Array<String>) {
-    runApplication<MartianRobotCommanderApplication>(*args)
+    }
 }
+
